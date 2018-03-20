@@ -1,13 +1,12 @@
+import torch,cv2#https://github.com/pytorch/pytorch/issues/2083
 import argparse
 import scipy
 from scipy import ndimage
-import cv2
 import numpy as np
 import sys
 from collections import OrderedDict
 import os
 
-import torch
 import torch.nn as nn
 from torch.autograd import Variable
 import torchvision.models as models
@@ -63,7 +62,7 @@ def get_arguments():
                         help="Where restore model parameters from.")
     parser.add_argument("--save-dir", type=str, default=SAVE_DIRECTORY,
                         help="Directory to store results")
-    parser.add_argument("--gpu", type=int, default=0,
+    parser.add_argument("--gpu", type=int, default=1,
                         help="choose gpu device.")
     return parser.parse_args()
 
